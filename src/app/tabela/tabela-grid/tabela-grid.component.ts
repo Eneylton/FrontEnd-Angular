@@ -1,7 +1,9 @@
+import { ErrorHandlerService } from './../../core/error-handler.service';
 import { TabelaService } from './../tabela.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/api';
 import { ToastyService } from 'ng2-toasty';
+
 
 @Component({
   selector: 'app-tabela-grid',
@@ -10,11 +12,13 @@ import { ToastyService } from 'ng2-toasty';
 })
 export class TabelaGridComponent {
 
+
   @Input()  alunos = [];
   @ViewChild('tabela') grid;
 
   constructor(private tabelaService: TabelaService,
               private toasty: ToastyService,
+              private errorHandler: ErrorHandlerService,
               private confirmation: ConfirmationService) { }
 
   ngOnInit() {
@@ -23,7 +27,7 @@ export class TabelaGridComponent {
 
   pesquisar() {
     this.tabelaService.pesquisar()
-      .then(alunos => this.alunos = alunos);
+      .then(alunos => this.alunos = alunos).catch(erro => this.errorHandler.handle(erro));
   }
 
   confirmarExclusao(aluno: any) {
@@ -46,7 +50,7 @@ export class TabelaGridComponent {
         }
 
         this.toasty.success('Aluno excluído com sucesso!');
-      });
+      }).catch(erro => this.errorHandler.handle(erro));
   }
 
 }

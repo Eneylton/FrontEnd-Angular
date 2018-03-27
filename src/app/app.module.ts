@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule , LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { CoreModule } from './core/core.module';
 import { HttpModule } from '@angular/http';
 
 import { ToastyModule } from 'ng2-toasty';
@@ -19,12 +20,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     TabelaModule,
     HttpModule,
-    ToastyModule.forRoot(),
-    ConfirmDialogModule
+    CoreModule
   ],
-  providers: [TabelaService,
-    ConfirmationService,
-    { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
