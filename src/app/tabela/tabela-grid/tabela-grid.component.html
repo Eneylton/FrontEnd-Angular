@@ -10,7 +10,8 @@
   <p-column styleClass="col-acoes" header="Ações">
     <ng-template let-lanc="rowData" pTemplate="body">
 
-      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="excluir(lanc.id)"></button>
+      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"
+      (click)="confirmarExclusao(lanc.id)"></button>
     </ng-template>
   </p-column>
 </p-dataTable>

@@ -1,5 +1,6 @@
 import { TabelaService } from './../tabela.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/components/common/api';
 import { ToastyService } from 'ng2-toasty';
 
 @Component({
@@ -13,7 +14,8 @@ export class TabelaGridComponent {
   @ViewChild('tabela') grid;
 
   constructor(private tabelaService: TabelaService,
-              private toasty: ToastyService) { }
+              private toasty: ToastyService,
+              private confirmation: ConfirmationService) { }
 
   ngOnInit() {
     this.pesquisar();
@@ -22,6 +24,15 @@ export class TabelaGridComponent {
   pesquisar() {
     this.tabelaService.pesquisar()
       .then(alunos => this.alunos = alunos);
+  }
+
+  confirmarExclusao(aluno: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(aluno);
+      }
+    });
   }
 
   excluir(codigo: number) {

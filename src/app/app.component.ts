@@ -9,6 +9,6 @@ import { ToastyConfig } from 'ng2-toasty';
 export class AppComponent {
   constructor(private toastyConfig: ToastyConfig) {
     this.toastyConfig.theme = 'material';
-    this.toastyConfig.position = "top-left";
+    this.toastyConfig.position = "top-right";
   }
 }
