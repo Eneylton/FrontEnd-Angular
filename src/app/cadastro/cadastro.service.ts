@@ -6,9 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class CadastroService {
 
-  converterStringsParaDatas(arg0: any): any {
-    throw new Error("Method not implemented.");
-  }
+
 
   alunoUrl = 'http://localhost:8080/alunos';
 
