@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { CadastroService } from './../cadastro/cadastro.service';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +18,7 @@ import { TabelaService } from '../tabela/tabela.service';
 
     ToastyModule.forRoot(),
     ConfirmDialogModule,
+    RouterModule
   ],
   declarations: [],
   exports: [
@@ -24,6 +27,7 @@ import { TabelaService } from '../tabela/tabela.service';
     ConfirmDialogModule
   ],
   providers: [TabelaService,
+    CadastroService,
     ConfirmationService,
     ErrorHandlerService,
     { provide: LOCALE_ID, useValue: 'pt-BR' }]

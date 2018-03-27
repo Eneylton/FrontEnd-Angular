@@ -1,0 +1,43 @@
+<div class="container">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Novo Aluno</h1>
+      </div>
+      <hr />
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" [(ngModel)]="aluno.nome"
+         name="nome" ngModel #nome="ngModel" required minlength="5">
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Endereço</label>
+        <input pInputText type="text" name="endereco" [(ngModel)]="aluno.endereco"
+        ngModel #endereco="ngModel">
+      </div>
+
+      <div class="ui-g-6 ui-md-3  ui-fluid">
+        <label>Email</label>
+        <input pInputText type="text" name="email" [(ngModel)]="aluno.email"
+        ngModel #email="ngModel">
+      </div>
+
+      <div class="ui-g-6 ui-md-3 ui-fluid">
+        <label>Telefone</label>
+        <input pInputText type="text" name="telefone" [(ngModel)]="aluno.telefone"
+        ngModel #telefone="ngModel">
+      </div>
+
+
+    </div>
+
+    <div class="ui-g-12">
+      <button pButton icon="fa fa-check" type="submit" label="Salvar"></button>
+      <button pButton icon="fa fa-plus" type="button" label="Novo" class="ui-button-success"></button>
+      <a  routerLink="/alunos" >Voltar para a pesquisa</a>
+    </div>
+  </form>
+</div>

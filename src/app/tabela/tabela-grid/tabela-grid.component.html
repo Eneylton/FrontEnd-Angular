@@ -1,3 +1,12 @@
+<div class="ui-g-12">
+<h1>Alunos</h1>
+
+</div>
+
+ <div class="ui-g-12">
+    <a pButton label="Novo Aluno" routerLink="/alunos/novo"></a>
+
+<hr />
 <p-dataTable [value]="alunos" [paginator]="true" [rows]="5" [responsive]="true" #tabela>
 
   <p-column field="id" header="Código"></p-column>
@@ -15,3 +24,4 @@
     </ng-template>
   </p-column>
 </p-dataTable>
+</div>
