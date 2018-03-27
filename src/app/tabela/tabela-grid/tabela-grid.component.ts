@@ -1,5 +1,6 @@
 import { TabelaService } from './../tabela.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-tabela-grid',
@@ -11,7 +12,8 @@ export class TabelaGridComponent {
   @Input()  alunos = [];
   @ViewChild('tabela') grid;
 
-  constructor(private tabelaService: TabelaService) { }
+  constructor(private tabelaService: TabelaService,
+              private toasty: ToastyService) { }
 
   ngOnInit() {
     this.pesquisar();
@@ -25,7 +27,14 @@ export class TabelaGridComponent {
   excluir(codigo: number) {
     this.tabelaService.excluir(codigo)
       .then(() => {
-        this.grid.first = 0;
+        if (this.grid.first === 0){
+          this.pesquisar();
+        }else{
+
+          this.grid.first = 0;
+        }
+
+        this.toasty.success('Aluno excluído com sucesso!');
       });
   }
 

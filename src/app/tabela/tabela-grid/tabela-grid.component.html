@@ -1,18 +1,16 @@
 <p-dataTable [value]="alunos" [paginator]="true" [rows]="5" [responsive]="true" #tabela>
 
   <p-column field="id" header="Código"></p-column>
-  <p-column field="email" header="Nome"></p-column>
-  <p-column field="endereco" header="Email"></p-column>
-  <p-column field="nome" header="Endereço"></p-column>
-  <p-column field="telefone" header="Endereço"></p-column>
+  <p-column field="nome" header="Nome"></p-column>
+  <p-column field="endereco" header="Endereço"></p-column>
+  <p-column field="email" header="Email"></p-column>
+  <p-column field="telefone" header="Telefone"></p-column>
 
 
-   <p-column styleClass="col-acoes">
-            <ng-template let-lanc="rowData" pTemplate="body">
+  <p-column styleClass="col-acoes" header="Ações">
+    <ng-template let-lanc="rowData" pTemplate="body">
 
-              <button pButton icon="fa-trash"
-                pTooltip="Excluir" tooltipPosition="top"
-                (click)="excluir(lanc.id)"></button>
-            </ng-template>
-        </p-column>
+      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="excluir(lanc.id)"></button>
+    </ng-template>
+  </p-column>
 </p-dataTable>
