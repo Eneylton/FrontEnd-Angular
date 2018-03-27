@@ -20,6 +20,7 @@ import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 
 const routes: Routes = [
   { path: 'alunos', component: TabelaGridComponent },
+  { path: 'alunos/:codigo', component: CadastroComponent },
   { path: 'alunos/novo', component: CadastroComponent }
 ];
 

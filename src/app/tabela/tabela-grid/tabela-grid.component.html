@@ -1,10 +1,12 @@
-<div class="ui-g-12">
-<h1>Alunos</h1>
+<div class="container">
 
-</div>
+
+
 
  <div class="ui-g-12">
-    <a pButton label="Novo Aluno" routerLink="/alunos/novo"></a>
+    <h1>Alunos</h1>
+    <br />
+    <a icon="fa fa-arrow-circle-left" pButton label="Novo Aluno" routerLink="/alunos/novo"></a>
 
 <hr />
 <p-dataTable [value]="alunos" [paginator]="true" [rows]="5" [responsive]="true" #tabela>
@@ -16,12 +18,19 @@
   <p-column field="telefone" header="Telefone"></p-column>
 
 
-  <p-column styleClass="col-acoes" header="Ações">
-    <ng-template let-lanc="rowData" pTemplate="body">
+  <p-column styleClass="col-acoes" header="Ações" >
+    <ng-template let-aluno="rowData" pTemplate="body">
+
+        <button pButton icon="fa-pencil" pTooltip="Editar" class="ui-button-warning"
+        tooltipPosition="top"
+        [routerLink]="['/alunos', aluno.id]"></button>
 
       <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"
-      (click)="confirmarExclusao(lanc.id)"></button>
+      (click)="confirmarExclusao(aluno.id)"></button>
     </ng-template>
+
+
   </p-column>
 </p-dataTable>
+</div>
 </div>
