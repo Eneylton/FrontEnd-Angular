@@ -19,7 +19,7 @@ export class CadastroComponent implements OnInit {
   aluno = new Aluno();
 
   constructor(
-    private cadastroService:CadastroService,
+    private cadastroService: CadastroService,
     private toasty: ToastyService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
@@ -49,10 +49,20 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar(form: FormControl) {
-    this.cadastroService.adicionar(this.aluno);
-    form.reset();
 
-    this.toasty.success('Lançamento adicionado com sucesso!');
+    if (this.editando) {
+      this.cadastroService.atualizar(this.aluno);
+      form.reset();
+      this.toasty.success('Aluno atualizado com sucesso!');
+    } else {
+
+      this.cadastroService.adicionar(this.aluno);
+      form.reset();
+
+      this.toasty.success('Aluno adicionado com sucesso!');
+
+    }
+
   }
 
 
